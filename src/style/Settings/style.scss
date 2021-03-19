@@ -1,0 +1,19 @@
+.settings{
+    margin: 10px;
+    &__el{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    margin-top: 15px;
+    }
+    &__text {
+        grid-column: 1;
+        margin-left: 15px;
+
+    }
+    &__check {
+        grid-column: 2;
+        display:flex;
+        justify-content: flex-end;
+        margin-right: 15px;
+    }
+}

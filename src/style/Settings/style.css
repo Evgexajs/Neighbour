@@ -1,0 +1,30 @@
+.settings {
+  margin: 10px;
+}
+
+.settings__el {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 80% 20%;
+      grid-template-columns: 80% 20%;
+  margin-top: 15px;
+}
+
+.settings__text {
+  -ms-grid-column: 1;
+  grid-column: 1;
+  margin-left: 15px;
+}
+
+.settings__check {
+  -ms-grid-column: 2;
+  grid-column: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-right: 15px;
+}
+/*# sourceMappingURL=style.css.map */
