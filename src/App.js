@@ -5,17 +5,17 @@ import Menu from './components/Menu.jsx'
 import Main from './components/Main.jsx'
 import Profile from './components/Profile.jsx'
 import Settings from './components/Settings.jsx'
-import Messages from './components/Messages.jsx'
+import Messages from './components/dialogs/Messages.jsx'
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <div className="main">
           <Menu />
-          <Route path='/main' component={Main}/>
-          <Route path='/profile' component={Profile}/>
-          <Route path='/settings' component={Settings}/>
-          <Route path='/messages' component={Messages}/>
+          <Route path='/main' render={ () => <Main />}/>
+          <Route exact path='/profile' component={Profile}/>
+          <Route exact path='/settings' component={Settings}/>
+          <Route path='/messages' render={ () => <Messages />}/>
       </div>
     </BrowserRouter>
   );
