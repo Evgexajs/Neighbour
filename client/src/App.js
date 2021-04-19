@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './style/style.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Menu from './components/Menu.jsx'
@@ -8,8 +8,15 @@ import Settings from './components/Settings.jsx'
 import Messages from './components/dialogs/Messages.jsx'
 import Registration from './components/Registation.jsx';
 import Login from './components/Login.jsx';
+import { useDispatch } from 'react-redux';
+import { Auth } from './actions/authAction';
+import Files from './components/disk/Files.jsx';
 
 function App(props) {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(Auth())
+  }, []);
   return (
     <BrowserRouter>
       <div className="main">
@@ -20,6 +27,7 @@ function App(props) {
           <Route path='/messages' render={ () => <Messages />}/>
           <Route path='/registration'  component={Registration}/>
           <Route path='/login'  component={Login}/>
+          <Route path='/files'  component={Files}/>
       </div>
     </BrowserRouter>
   );

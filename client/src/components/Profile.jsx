@@ -1,8 +1,11 @@
 import React from 'react';
 import '../style/style.css';
 import '../style/Profile/style.css'
+import { useSelector } from 'react-redux';
 
 function Profile (props) {
+    const isAuth = useSelector(state => state.login.isAuth)
+    const user = useSelector(state => state.login.currentUser)
     return (
         <div className='center'>
             <div className='list'>
@@ -12,8 +15,8 @@ function Profile (props) {
                         <div className='profile__image'>
                             <img src="https://images.unsplash.com/photo-1515191107209-c28698631303?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80" alt=""/>
                         </div>
-                        
                         <div className='profile__info'>
+                        {isAuth && <div  className='profile__text'>{user.user.email}</div>}
                             <div  className='profile__text'>Жесть</div>
                             <div  className='profile__text'>Жесть</div>
                             <div  className='profile__text'>Жесть</div>

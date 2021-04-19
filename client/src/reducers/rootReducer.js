@@ -6,6 +6,9 @@ import { dialogsData } from './dialogsData'
 import { registration } from './registration';
 import { error } from './error'
 import { login } from './log';
+import { files } from './files';
+import { upload } from './upload';
+import { loader } from './loader';
 
 export default combineReducers({
     dialogsData: dialogsData,
@@ -14,5 +17,8 @@ export default combineReducers({
     messagesData: messagesData,
     registration: registration,
     error: error,
-    login: login
+    login: login,
+    files: files,
+    upload: upload,
+    loader: loader,
 });

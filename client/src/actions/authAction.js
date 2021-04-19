@@ -2,13 +2,11 @@ import axios from 'axios';
 import { LOGIN, ERROR} from './actionTypes'
 
 
-export function Log(email, password) {
+export function Auth() {
 
     return (dispatch) => {        
-        axios.post('http://localhost:5000/api/auth/login', {
-            email: email,
-            password: password
-        })
+        axios.get('http://localhost:5000/api/auth/auth',
+         ({headers: {Authorization:`Bearer ${localStorage.getItem('token')}`}}))
         .then(response =>{
             const log = response.data
             dispatch({
@@ -18,6 +16,7 @@ export function Log(email, password) {
             localStorage.setItem('token', response.data.token)
         })
         .catch(error => {
+            localStorage.removeItem('token')
             const errors = error.message
             console.log(error)
             dispatch({
